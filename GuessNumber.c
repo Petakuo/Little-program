@@ -4,18 +4,21 @@
 
 void AB(char* s, char* t){
 	int countA = 0, countB = 0;
-	int used[4] = {0};
+	int Aused[4] = {0};
+	int Bused[4] = {0};
 	for(int i = 0; i < 4; i++){
 		if(t[i] == s[i]){
 			countA++;
-			used[i] = 1;
+			Aused[i] = 1;
+			Bused[i] = 1;
 		}
 	}
 	for(int i = 0; i < 4; i++){
 		for(int j = 0; j < 4; j++){
-			if(t[j] == s[i] && used[j] == 0){
+			if(t[j] == s[i] && Bused[j] == 0 && Aused[i] == 0){
 				countB++;
-				used[j] = 1;
+				Bused[j] = 1;
+				Aused[i] = 1;
 				break;
 			}
 		}
